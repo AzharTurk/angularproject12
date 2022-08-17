@@ -1,0 +1,103 @@
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Create Account</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home/shop"  >Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Create Account</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Create Account</h3>
+                <div class="theme-card">
+                    <form class="theme-form" [formGroup]="registerForm" (ngSubmit)="save()">
+                        <div class="form-row">
+    
+                            <div class="col-md-6">
+                                <label for="name">First Name</label>
+                                <input type="text" class="form-control" formControlName="FirstName"
+                                    placeholder="Enter Your First Name"
+                                    [ngClass]="{'is-invalid' : submitted && f.FirstName.errors }" />
+                                <div *ngIf="submitted && f.FirstName.errors" class="col-xl-3 col-md-4 invalid-feedback">
+                                    <div *ngIf="f.FirstName.errors.required">
+                                        First Name is required !!
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-6">
+                                <label for="name">Last Name</label>
+                                <input type="text" class="form-control" formControlName="LastName"
+                                    placeholder="Enter Your Last Name"
+                                    [ngClass]="{'is-invalid' : submitted && f.LastName.errors }" />
+                                <div *ngIf="submitted && f.LastName.errors" class="col-xl-3 col-md-4 invalid-feedback">
+                                    <div *ngIf="f.LastName.errors.required">
+                                        Last Name is required !!
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <div class="col-md-6">
+                                <label for="name">Email Id</label>
+                                <input type="text" class="form-control" formControlName="EmailId"
+                                    placeholder="Enter Your EmailId"
+                                    [ngClass]="{'is-invalid' : submitted && f.EmailId.errors }" />
+                                <div *ngIf="submitted && f.EmailId.errors" class="col-xl-3 col-md-4 invalid-feedback">
+                                    <div *ngIf="f.EmailId.errors.required">
+                                        Email Id is required !!
+                                    </div>
+                                    <div *ngIf="f.EmailId.errors.email">
+                                        Email Id must be a valid email address !!
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <div class="col-md-6">
+                                <label for="name">Password</label>
+                                <input type="password" class="form-control" formControlName="Password"
+                                    placeholder="Enter Your Password"
+                                    [ngClass]="{'is-invalid' : submitted && f.Password.errors }" />
+                                <div *ngIf="submitted && f.Password.errors" class="col-xl-3 col-md-4 invalid-feedback">
+                                    <div *ngIf="f.Password.errors.required">
+                                        Password is required !!
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <div class="col-md-12">
+                                <label for="name">Confirm Password</label>
+                                <input type="password" class="form-control" formControlName="ConfirmPassword"
+                                    placeholder="Enter Your ConfirmPassword"
+                                    [ngClass]="{'is-invalid' : submitted && f.ConfirmPassword.errors }" />
+                                <div *ngIf="submitted && f.ConfirmPassword.errors" class="col-xl-3 col-md-4 invalid-feedback">
+                                    <div *ngIf="f.ConfirmPassword.errors.required">
+                                        ConfirmPassword is required !!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-success">Create Account</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,73 @@
+<nav id="main-nav">
+    <div class="toggle-nav">
+        <i class="fa fa-bars sidebar-bar"></i>
+    </div>
+    <!-- Sample menu definition -->
+    <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+        <li>
+            <div class="mobile-back text-right">
+                Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i>
+            </div>
+        </li>
+        <!-- 1st Level Menu -->
+        <li *ngFor="let menuItem of menuItems" [class]="menuItem.megaMenu ? 'mega' : ''"
+            [id]="menuItem.megaMenuType == 'large' ? 'hover-cls' : ''">
+            <!-- Sub -->
+            <a href="javascript:void(0)" *ngIf="menuItem.type === 'sub'">
+                {{menuItem.title | translate}}
+            </a>
+            <!-- Link -->
+            <a [routerLink]="!menuItem.type ? null : [menuItem.path]" *ngIf="menuItem.type === 'link'">
+                {{menuItem.title | translate}}
+            </a>
+
+            <!-- 2nd Level Menu -->
+            <ul *ngIf="menuItem.children"
+                [class]="menuItem.megaMenu && menuItem.megaMenuType == 'small' ? 'mega-menu feature-menu' : menuItem.megaMenuType == 'medium' ? 'mega-menu feature-menu product-menu' : menuItem.megaMenuType == 'large' ? 'mega-menu full-mega-menu' : '' "
+                [id]="'mega-menu'">
+                <!-- Large Mega Menu Start-->
+                <ng-container *ngIf="menuItem.megaMenu && menuItem.megaMenuType == 'large'">
+                    <li>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col mega-box" *ngFor="let childrenItem of menuItem.children">
+                                    <div class="link-section">
+                                        <div class="menu-title">
+                                            <h5>{{childrenItem.title | translate}}</h5>
+                                        </div>
+                                        <div class="menu-content">
+                                            <ul>
+                                                <li *ngFor="let childrenSubItem of childrenItem.children">
+                                                    <!-- Link -->
+                                                    <a [routerLink]="!childrenSubItem.type ? null : [childrenSubItem.path]"
+                                                        *ngIf="childrenSubItem.type === 'link'">
+                                                        {{childrenSubItem.title | translate}}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row banner-padding">
+                            <div class="col-xl-6">
+                                <a [routerLink]="'/home/left-sidebar/collection/all'" class="mega-menu-banner">
+                                    <img src="assets/images/mega-menu/1.jpg" class="img-fluid d-none d-xl-block "
+                                        alt="">
+                                </a>
+                            </div>
+                            <div class="col-xl-6">
+                                <a [routerLink]="'/home/left-sidebar/collection/all'" class="mega-menu-banner">
+                                    <img src="assets/images/mega-menu/2.jpg" class="img-fluid d-none d-xl-block" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ng-container>
+                <!-- Large Mega Menu End-->
+            </ul>
+        </li>
+
+    </ul>
+</nav>

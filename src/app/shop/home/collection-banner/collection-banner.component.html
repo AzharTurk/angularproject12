@@ -1,0 +1,19 @@
+<section class="pb-0">
+    <div class="container">
+        <div class="row partition2">
+            <div class="col-md-6" *ngFor="let data of category">
+                <a [routerLink]="data.link">
+                    <div class="collection-banner p-right text-center">
+                        <img class="img-fluid" [src]="data.imagePath" alt="category image">
+                        <div class="contain-banner">
+                            <div>
+                                <h4>Save {{data.isSave}} %</h4>
+                                <h2>{{data.title}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+<!-- 1st Level Menu -->
+<!-- Sample menu definition -->
+<ul id="sub-menu" class="sm pixelstrap sm-vertical">
+    <li *ngFor="let menuItem of menuItems">
+        <!-- Sub -->
+        <a href="javascript:void(0)" *ngIf="menuItem.type === 'sub'">
+            {{menuItem.title}}
+        </a>
+        <!-- Link -->
+        <a [routerLink]="!menuItem.type ? null : [menuItem.path]" *ngIf="menuItem.type === 'link'">
+            {{menuItem.title}}
+        </a>
+        <!-- 2nd Level Menu -->
+        <ul [class]="menuItem.megaMenu ? 'mega-menu clothing-menu' : ''" *ngIf="menuItem.children">
+
+            <!-- Simple Menu Start-->
+            <ng-container *ngIf="!menuItem.megaMenu">
+                <li *ngFor="let childrenItem of menuItem.children">
+                    <!-- Link -->
+                    <a [routerLink]="!childrenItem.type ? null : [childrenItem.path]"
+                        *ngIf="childrenItem.type === 'link'">
+                        {{childrenItem.title}}
+                    </a>
+                </li>
+            </ng-container>
+            <!-- Simple Menu End-->
+
+            <!-- Mega Menu Start-->
+            <ng-container *ngIf="menuItem.megaMenu">
+                <li>
+                    <div class="row m-0">
+                        <div class="col-xl-4" *ngFor="let childrenItem of menuItem.children">
+                            <div class="link-section">
+                                <h5>{{childrenItem.title}}</h5>
+                                <ul>
+                                    <li *ngFor="let childrenSubItem of childrenItem.children">
+                                        <!-- Link -->
+                                        <a [routerLink]="!childrenSubItem.type ? null : [childrenSubItem.path]"
+                                            *ngIf="childrenSubItem.type === 'link'">
+                                            {{childrenSubItem.title}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <a [routerLink]="['/home/shop']" class="mega-menu-banner"><img
+                                    src="assets/images/mega-menu/bag.jpg" alt="" class="img-fluid"></a>
+                        </div>
+                    </div>
+                </li>
+            </ng-container>
+            <!-- Mega Menu End-->
+        </ul>
+    </li>
+</ul>

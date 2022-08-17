@@ -1,0 +1,16 @@
+{
+    "topbar-title" :"Welcome to Sahosoft Mall",
+    "call-us" : "Call Us",
+    "home" : "home",
+    "features": "features",
+    "new": "new",
+    "login": "login",
+    "register": "register",
+    "logout": "Logout",
+    "my-account": "My Account",
+    "search": "search",
+    "wishlist": "wishlist",
+    "cart": "cart",
+    "checkout": "checkout",
+    "compare": "compare"
+}

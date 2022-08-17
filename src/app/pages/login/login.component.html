@@ -1,0 +1,69 @@
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>customer's login</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home/shop">Home</a></li>
+                        <li class="breadcrumb-item active">login</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="login-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Customer's Login</h3>
+                <div class="theme-card">
+                    <form class="theme-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                        <div class="form-group">
+                            <label for="name">UserName</label>
+                            <input type="text" class="form-control" formControlName="UserName"
+                                placeholder="Enter Your UserName"
+                                [ngClass]="{'is-invalid' : submitted && f.UserName.errors }" />
+                            <div *ngIf="submitted && f.UserName.errors" class="col-xl-3 col-md-4 invalid-feedback">
+                                <div *ngIf="f.UserName.errors.required">
+                                    UserName is required !!
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="name">Password</label>
+                            <input type="password" class="form-control" formControlName="Password"
+                                placeholder="Enter Your Password"
+                                [ngClass]="{'is-invalid' : submitted && f.Password.errors }" />
+                            <div *ngIf="submitted && f.Password.errors" class="col-xl-3 col-md-4 invalid-feedback">
+                                <div *ngIf="f.Password.errors.required">
+                                    Password is required !!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Login</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 right-login">
+            <h3>New Customer</h3>
+            <div class="theme-card authentication-right">
+                <h6 class="title-font" routerLink="/pages/register">Create A Account</h6>
+                <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to
+                    be able to order from our shop. To start shopping click register.</p>
+                <button class="btn btn-solid" routerLink="/pages/register">Create an Account</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,55 @@
+<!-- header start -->
+<header id="sticky" class="sticky">
+    <div class="mobile-fix-option"></div>
+    <div class="top-header">
+        <div class="container">
+            <!-- For top menu bar -->
+            <app-topbar></app-topbar>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu">
+                    <div class="menu-left">
+                        <div class="navbar">
+                            <a (click)="_menuNavService.openNav()" >
+                                <div class="bar-style">
+                                    <i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
+                                </div>
+                            </a>
+                            <div id="mySidenav" class="sidenav">
+                                <a class="sidebar-overlay" (click)="_menuNavService.closeNav()" ></a>
+                                <nav>
+                                    <div (click)="_menuNavService.closeNav()" >
+                                        <div class="sidebar-back text-left">
+                                            <i class="fa fa-angle-left pr-2" aria-hidden="true"></i> Back
+                                        </div>
+                                    </div>
+                                    <!-- For left menu bar -->
+                                    <app-left-menu></app-left-menu>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="brand-logo">
+                            <a routerLink="/home/shop" >
+                                <img src="assets/images/icon/logo.png" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="menu-right pull-right">
+                        <div>
+                            <!-- For second top menu bar -->
+                            <app-navbar></app-navbar>
+                        </div>
+                        <div>
+                            <app-settings></app-settings>
+                            <!-- For language setting icon -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header end -->
